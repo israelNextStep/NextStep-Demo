@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion NextStep</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Styles spécifiques à la discussion, ajoutés au style.css principal */
+        .discussion-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        
+        #messages-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            clear: both;
+        }
+
+        .user-message {
+            background-color: #e1ffc7; /* Vert clair */
+            float: right;
+            max-width: 70%;
+        }
+        
+        .other-message {
+            background-color: #f1f0f0; /* Gris clair */
+            float: left;
+            max-width: 70%;
+        }
+
+        #message-input {
+            width: 85%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #send-button {
+            width: 13%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 1%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="path/to/nextstep_logo.png" alt="Logo NextStep" class="logo">
+        <h1>Discussion NextStep - Espace d'Échange</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">Déconnexion</button>
+        </nav>
+    </header>
+
+    <div class="discussion-container">
+        <h2>Fil de discussion général</h2>
+        <div id="messages-box">
+            <div class="message other-message">**Ministère du Numérique** : Bienvenue sur NextStep ! Nous sommes ravis de voir l'engouement des jeunes entrepreneurs.</div>
+            <div class="message other-message">**Israel (Admin)** : Merci pour vos retours ! Postez ici vos questions sur la plateforme.</div>
+            </div>
+
+        <input type="text" id="message-input" placeholder="Écrivez votre message...">
+        <button id="send-button" onclick="sendMessage()">Envoyer</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 NextStep. Présentation Démos.</p>
+    </footer>
+
+    <script>
+        // Logique JavaScript pour la page de discussion
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const messageText = input.value.trim();
+            
+            if (messageText === "") {
+                return; // Ne rien faire si le message est vide
+            }
+            
+            const messagesBox = document.getElementById('messages-box');
+            const newMessage = document.createElement('div');
+            
+            // On simule que c'est l'utilisateur actuel qui envoie (user-message)
+            newMessage.className = 'message user-message';
+            newMessage.textContent = `**Moi** : ${messageText}`; 
+            
+            messagesBox.appendChild(newMessage);
+            input.value = ''; // Vider le champ de saisie
+            
+            // Faire défiler vers le bas pour voir le nouveau message
+            messagesBox.scrollTop = messagesBox.scrollHeight; 
+        }
+
+        // Permettre l'envoi avec la touche Entrée
+        document.getElementById('message-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

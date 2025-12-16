@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextStep - Démonstration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <img src="path/to/nextstep_logo.png" alt="Logo NextStep" class="logo">
+        <h1>NextStep</h1>
+        <nav>
+            <button onclick="document.getElementById('inscription-form').style.display='block'">S'inscrire</button>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h2>Votre Futur Commence Ici</h2>
+        <p>Présentation du projet NextStep au Ministère du Numérique. Plateforme d'accompagnement et de mise en relation pour jeunes entrepreneurs.</p>
+    </main>
+
+    <div id="inscription-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('inscription-form').style.display='none'">&times;</span>
+            <h3>Inscription NextStep</h3>
+            <form id="signupForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <button type="submit">Valider et Accéder</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 NextStep. Présentation Démos.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
